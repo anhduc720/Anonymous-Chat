@@ -35,6 +35,14 @@ class LoginViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        let channelVc = segue.destination as! ChanelViewController // 2
+        
+        channelVc.senderDisplayName = nameField?.text // 3
+    }
 
 }
 

@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8TQ-Vt-sBA">
             <objects>
-                <navigationController navigationBarHidden="YES" id="GMc-At-yf4" sceneMemberID="viewController">
+                <navigationController id="GMc-At-yf4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="J3c-RL-XsL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -96,19 +96,56 @@
             </objects>
             <point key="canvasLocation" x="-503.19999999999999" y="29.23538230884558"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Chanel View Controller-->
         <scene sceneID="pTb-MK-1eT">
             <objects>
-                <tableViewController id="5cG-gS-S6c" sceneMemberID="viewController">
+                <tableViewController id="5cG-gS-S6c" customClass="ChanelViewController" customModule="Chaty" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wAG-QG-U6q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CAy-ED-Vdz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewChannel" id="CAy-ED-Vdz" customClass="CreateChannelCell" customModule="Chaty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CAy-ED-Vdz" id="jjb-H5-9Ve">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Chanel Name!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-Fk-BNm">
+                                            <rect key="frame" x="8" y="8" width="248" height="27.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-8d-fee">
+                                            <rect key="frame" x="266" y="8" width="46" height="27.5"/>
+                                            <state key="normal" title="Create"/>
+                                            <connections>
+                                                <action selector="createChanelTapped:" destination="5cG-gS-S6c" eventType="touchUpInside" id="yd6-ev-2XH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uOh-Fk-BNm" firstAttribute="leading" secondItem="jjb-H5-9Ve" secondAttribute="leading" constant="8" id="1nl-Lt-kI4"/>
+                                        <constraint firstAttribute="bottom" secondItem="uOh-Fk-BNm" secondAttribute="bottom" constant="8" id="37v-D8-ESJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="fd3-8d-fee" secondAttribute="trailing" constant="8" id="7eY-kb-T4w"/>
+                                        <constraint firstAttribute="bottom" secondItem="fd3-8d-fee" secondAttribute="bottom" constant="8" id="JXF-Mk-urA"/>
+                                        <constraint firstItem="fd3-8d-fee" firstAttribute="top" secondItem="jjb-H5-9Ve" secondAttribute="top" constant="8" id="QXF-D7-zEW"/>
+                                        <constraint firstItem="fd3-8d-fee" firstAttribute="leading" secondItem="uOh-Fk-BNm" secondAttribute="trailing" constant="10" id="Y6N-vN-BjT"/>
+                                        <constraint firstItem="uOh-Fk-BNm" firstAttribute="top" secondItem="jjb-H5-9Ve" secondAttribute="top" constant="8" id="ydL-pD-kI6"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="createChannelButton" destination="fd3-8d-fee" id="S5G-Mp-Yur"/>
+                                    <outlet property="newChannelNameField" destination="uOh-Fk-BNm" id="2Ko-9q-dcG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExistingChannel" id="KXm-4O-Cw1">
+                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KXm-4O-Cw1" id="l3l-2Q-NCu">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
@@ -119,10 +156,31 @@
                             <outlet property="delegate" destination="5cG-gS-S6c" id="z5K-3C-N9v"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="ggw-90-nNz" kind="show" identifier="ChanelToChat" id="g9n-wR-epw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nX-Qu-uEq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718" y="29"/>
+            <point key="canvasLocation" x="716.25" y="28.52112676056338"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="F5R-H2-ZLX">
+            <objects>
+                <viewController id="ggw-90-nNz" customClass="ChatViewController" customModule="Chaty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KJO-i3-lWH"/>
+                        <viewControllerLayoutGuide type="bottom" id="gOP-51-G3R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G4b-Ir-6gI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wkf-rX-dhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1554" y="29"/>
         </scene>
     </scenes>
 </document>
